@@ -1,4 +1,4 @@
-var express = require('express');
+const express = require('express');
 const axios = require("axios");
 const router = express.Router();
 require('dotenv').config();
@@ -10,7 +10,7 @@ router.get('/', function (req, res, next) {
 
 router.get('/weather', function (req, res, next) {
     try {
-        axios.get("https://api.openweathermap.org/data/3.0/onecall?lat=33.44&lon=-94.04&exclude=hourly,daily&appid="
+        axios.get("https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID="
             + process.env.WHEATHER_API)
             .then(response => {
                 res.send(response.data);
